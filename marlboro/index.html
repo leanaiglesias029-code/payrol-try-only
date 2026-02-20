@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marlboro Cigarette Flavors Guide</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(to bottom, #b22222, #ffffff); /* Subtle red (Marlboro red) fading to white – fitting brand vibe without image */
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            cursor: url('https://i.fbcd.co/products/original/afbafe736c4ba6b15c88770378587e8513ffb50465a5b9290a80a5d4d439e936.jpg'), auto;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95); /* Semi-transparent white for clean readability */
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+        h1 {
+            text-align: center;
+            color: #b22222;
+            margin-bottom: 10px;
+        }
+        .intro {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #444;
+        }
+        .flavor {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 25px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .flavor h2 {
+            color: #b22222;
+            margin-top: 0;
+            font-size: 1.6rem;
+        }
+        .rating {
+            display: flex;
+            align-items: center;
+            margin: 12px 0;
+            font-size: 1.05rem;
+        }
+        .rating-label {
+            font-weight: bold;
+            min-width: 100px;
+            color: #444;
+        }
+        .cig-icon {
+            width: 32px;
+            height: auto;
+            margin-right: 6px;
+        }
+        p.description {
+            line-height: 1.7;
+            margin: 15px 0;
+            font-style: italic;
+            color: #555;
+        }
+        .note {
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+            margin-top: 40px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Marlboro Cigarette Flavors Guide</h1>
+        <p class="intro">Dive into the sensory world of popular Marlboro variants: bold tobacco depths, icy rushes, smooth whispers, and more. Each description paints a vivid picture of the taste, throat feel, and aroma. Ratings (1–5 cigarette icons) reflect taste intensity, nicotine kick, menthol coolness, and real-world popularity (how often bought globally).</p>
+
+        <div id="flavors-container"></div>
+
+        <p class="note">Note: Smoking causes serious harm to health and is addictive. This guide is for informational/educational purposes only — quitting is the best choice.</p>
+    </div>
+
+    <script>
+        // Cigarette icon for ratings
+        const cigIcon = 'https://i.fbcd.co/products/original/afbafe736c4ba6b15c88770378587e8513ffb50465a5b9290a80a5d4d439e936.jpg';
+
+        // Flavor data (no images)
+        const flavors = [
+            {
+                name: "Marlboro Red",
+                description: "Ignite and inhale the legend: a powerful rush of deep, earthy tobacco that fills your mouth with rich, seasoned wood and nutty undertones. The smoke rolls thick and bold, delivering a satisfying, almost resinous bitterness on the exhale — a classic, unapologetic throat hit that lingers like campfire smoke on a leather jacket. Full-bodied and commanding, it's the taste that built empires.",
+                taste: 5,
+                nicotine: 5,
+                menthol: 1,
+                popularity: 5
+            },
+            {
+                name: "Marlboro Gold",
+                description: "A gentle sunrise in smoke form: light Virginia tobacco unfolds with subtle sweetness and a whisper of earthiness. The draw is velvety smooth, almost creamy, with no harsh edges — just a refined, balanced tobacco essence that dances lightly on the palate and fades into a clean, mellow aftertaste. It's effortless elegance for those who savor nuance over force.",
+                taste: 4,
+                nicotine: 3,
+                menthol: 1,
+                popularity: 4
+            },
+            {
+                name: "Marlboro Silver",
+                description: "Barely there, yet unmistakably Marlboro: an airy veil of ultra-light tobacco with faint sweet notes and a whisper of Virginia brightness. The smoke feels feather-light on the tongue, delivering minimal throat grip and a neutral, clean finish that vanishes quickly — perfect for subtle moments when you want flavor without presence.",
+                taste: 3,
+                nicotine: 2,
+                menthol: 1,
+                popularity: 3
+            },
+            {
+                name: "Marlboro Menthol",
+                description: "Cool winds meet warm tobacco: the classic blend delivers a steady, earthy smoke that suddenly meets a crisp, invigorating mint wave. The menthol rushes forward like fresh winter air, tingling the throat with sharp refreshment while the underlying tobacco stays grounded — a harmonious dance of warmth and icy clarity that leaves your senses awakened.",
+                taste: 4,
+                nicotine: 4,
+                menthol: 5,
+                popularity: 4
+            },
+            {
+                name: "Marlboro Ice Blast",
+                description: "Start smooth, then unleash the storm: mild menthol tobacco greets you first, crisp and cool. Crush the capsule and a ferocious icy explosion erupts — like biting into a frozen spearmint glacier. The menthol surges intensely, numbing the tongue with sub-zero freshness that cuts through the smoke like arctic wind, transforming every draw into an exhilarating chill.",
+                taste: 4,
+                nicotine: 4,
+                menthol: 5,
+                popularity: 3
+            },
+            {
+                name: "Marlboro Black Menthol",
+                description: "Dark intensity unleashed: robust, deep tobacco roars with musky richness and a bold edge, then powerful menthol crashes in like black ice on a midnight road. The cooling is fierce and long-lasting, wrapping the strong flavor in sharp, crystalline refreshment — a dramatic, edgy fusion that hits hard and lingers with commanding presence.",
+                taste: 5,
+                nicotine: 5,
+                menthol: 5,
+                popularity: 3
+            }
+        ];
+
+        // Helper: generate cigarette icons for rating
+        function generateRating(score) {
+            let icons = '';
+            for (let i = 0; i < score; i++) {
+                icons += `<img src="${cigIcon}" alt="Cigarette rating" class="cig-icon">`;
+            }
+            return icons + ` (${score}/5)`;
+        }
+
+        // Render flavors
+        const container = document.getElementById('flavors-container');
+        flavors.forEach(flavor => {
+            const div = document.createElement('div');
+            div.className = 'flavor';
+            div.innerHTML = `
+                <h2>${flavor.name}</h2>
+                <p class="description">${flavor.description}</p>
+                <div class="rating"><span class="rating-label">Taste:</span> ${generateRating(flavor.taste)}</div>
+                <div class="rating"><span class="rating-label">Nicotine:</span> ${generateRating(flavor.nicotine)}</div>
+                <div class="rating"><span class="rating-label">Menthol:</span> ${generateRating(flavor.menthol)}</div>
+                <div class="rating"><span class="rating-label">Popularity:</span> ${generateRating(flavor.popularity)}</div>
+            `;
+            container.appendChild(div);
+        });
+    </script>
+</body>
+</html>
